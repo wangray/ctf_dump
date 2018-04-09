@@ -1,0 +1,74 @@
+//------------------------------------------------
+//--- 010 Editor v7.0.2 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+typedef  uint16 __int16;
+
+typedef struct _section{
+  int addr<format=hex>;
+  int field_4<format=hex>;
+  int len<format=hex>;
+  int offset<format=hex>;
+  int field_10<format=hex>;
+}section;
+
+typedef struct _regs{
+    uint32 registernum;
+    uint32 initialval<format=hex>;
+
+    switch(registernum){
+    case 29:
+        Printf("SP: %x\n",initialval);
+        break;
+    case 32:
+        Printf("SP: %x\n",initialval);
+        break;
+    case 28:
+        Printf("GP: %x\n",initialval);
+        break;
+    default:
+        Printf("NO");
+    }    
+
+}regs<optimize=false>;
+
+
+LittleEndian();
+typedef struct _hdr{
+    int magic<format=hex>;
+    int field_4<format=hex>;
+    int field_8<format=hex>;
+    int offset<format=hex>;
+    int offset2<format=hex>;
+    uint16 sectioncount<format=hex>;
+    __int16 field_16<format=hex>;
+    int siglocation<format=hex>;
+    int entrypoint<format=hex>;
+
+    FSeek(offset);
+    section sections[sectioncount];
+
+    FSeek(offset2);
+    regs reg[sectioncount];    
+
+    char pad[0xc];
+
+    FSeek(siglocation);
+    char sig[0x100];
+    
+}hdr;
+
+
+typedef struct _sig(unsigned int size){
+    char sig[size];
+}sig;
+
+hdr a;

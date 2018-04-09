@@ -1,0 +1,121 @@
+rot13
+xyzzy
+kluge
+hello world
+pr0n
+stomp on
+vax
+war dialer
+warez
+ykybhtlw
+this can't happen
+dead beef gynophage 
+shareware
+phreaker
+murphy's law lightning 
+
+
+lightning
+bja
+hj
+fuzyll hoju
+hoju
+fuzyll lightning 5
+sirgoon
+fuzyll hj
+fuzyll
+jymbolia
+selir 10
+fuzyll gynophage
+gynophage 12 
+fuzyll fuzyll
+vito
+fuzyll selir 15
+
+
+
+murphy's law second nibble
+0
+fuzyll hoju bja
+sirgoon hj
+fuzyll jymbolia hoju
+gynophage hoju
+fuzyll sirgoon lightning
+jymbolia sirgoon
+hoju hoju hj
+fuzyll sirgoon
+fuzyll hj hj
+bja lightning
+hoju lightning bja
+hj bja
+fuzyll vito sirgoon
+fuzyll fuzyll hoju
+hoju hj lightning
+
+
+next, try getting syscalls working...
+
+
+0x84 seems to be div. does  [top of stack]/[next val in stack]. stack is displayed with top at bottom.
+
+
+0x86
+
+good_syscalls:
+'\xb6\xb2\x84\xa0'
+'\xb6\xb4\x84\xa0'
+'\xb6\xb8\x84\xa0'
+'\xb6\xbc\x84\xa0'
+but just fills stack with crap
+
+
+0xd seems to be stack ops like dup, increment, decrement
+
+one allows me to go from the 16 to the 255 set
+
+how to getting all rogues: with 0x18
+every output of 0x18 has rogue in front, commutative
+
+0x1* does weird things
+
+0x20 does subtract... 
+
+so, i can 
+
+try to find more syscalls!!!!
+
+
+\x14 is a div of some sort because of divide by zero... 
+takes three operands, all same vals on stack gives hoju
+
+
+0x6 is multiply!!! that will give me what i want, the ability to test all 256 values for syscall
+
+
+0xe is a swap...
+
+WHERE IS MY MULTIPLY?
+
+0x8 seems to reverse sign
+
+
+
+1 is addition?
+2 subtract
+3 some sort of multiply 
+4 divide? 
+5 ?
+6 ?
+7 ?
+8 negate
+9 ?? two operands, when first is 0, it crashes
+a syscall
+b push
+c pop a value, do something with it?
+d dup
+e swap
+f pop a value, do something with it?
+
+from testing multiply 0x3: 186 left to test
+
+

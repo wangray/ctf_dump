@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout n1:layout_width="fill_parent" n1:layout_height="fill_parent" n2:layout_behavior="@string/appbar_scrolling_view_behavior"
+  xmlns:n1="http://schemas.android.com/apk/res/android" xmlns:n2="http://schemas.android.com/apk/res-auto">
+    <TextView n1:id="@id/sample_text" n1:layout_width="wrap_content" n1:layout_height="wrap_content" n1:text="example!" n2:layout_constraintBottom_toBottomOf="parent" n2:layout_constraintHorizontal_bias="0.501" n2:layout_constraintLeft_toLeftOf="parent" n2:layout_constraintRight_toRightOf="parent" n2:layout_constraintTop_toTopOf="parent" n2:layout_constraintVertical_bias="0.156" />
+    <EditText n1:id="@id/editText" n1:layout_width="wrap_content" n1:layout_height="wrap_content" n1:text="enter id" n1:ems="10" n1:inputType="textPersonName" n2:layout_constraintBottom_toBottomOf="parent" n2:layout_constraintLeft_toLeftOf="parent" n2:layout_constraintRight_toRightOf="parent" n2:layout_constraintTop_toTopOf="parent" n2:layout_constraintVertical_bias="0.6" />
+    <Button n1:id="@id/button2" n1:layout_width="wrap_content" n1:layout_height="wrap_content" n1:text="Next" n2:layout_constraintBottom_toBottomOf="parent" n2:layout_constraintLeft_toLeftOf="parent" n2:layout_constraintRight_toRightOf="parent" n2:layout_constraintTop_toTopOf="parent" n2:layout_constraintVertical_bias="0.8" />
+</android.support.constraint.ConstraintLayout>

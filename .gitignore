@@ -10,3 +10,4 @@ a.out
 .pwntools-cache/
 .irssi/
 *.dmp
+*.DS_Store

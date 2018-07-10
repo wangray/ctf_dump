@@ -1,0 +1,119 @@
+int __cdecl validate_msg_signature(int MQTT_MSG_POINTER, int MQTT_FULL_MSG_LENGTH, char *RSAPublic_KEY, int RSAPublic_KEY_LENGTH, int a5, int a6)
+{
+  int rsa; // ebp
+  int _4bytes_NUM_1; // eax
+  unsigned int _4bytes_NUM_2; // edi
+  size_t rsa_size_512; // eax
+  int RSA_Verify_Result; // eax
+  unsigned int Value_in_4bytes_NUM_4; // edx
+  int ReturnVal; // edi
+  unsigned int Value_in_4bytes_NUM_3; // eax
+  int v14; // eax
+  int result; // eax
+  int kbio; // [esp+0h] [ebp-150h]
+  int msg_ptr_after_header; // [esp+4h] [ebp-14Ch]
+  int ToldSizeOfMSG; // [esp+10h] [ebp-140h]
+  int SHA_CTX; // [esp+18h] [ebp-138h]
+  char Hash; // [esp+F0h] [ebp-60h]
+  unsigned int v21; // [esp+130h] [ebp-20h]
+
+  v21 = __readgsdword(0x14u);
+  if ( !MQTT_MSG_POINTER || !RSAPublic_KEY || !a5 || !a6 )
+  {
+    puts("validate_msg_signature passed NULL ptrs");
+LABEL_22:
+    ReturnVal = -1;
+    goto LABEL_18;
+  }
+  kbio = BIO_new_mem_buf(RSAPublic_KEY, RSAPublic_KEY_LENGTH);
+  if ( !kbio )
+  {
+    puts("BIO_new_mem_buf call failed");
+    goto LABEL_22;
+  }
+  rsa = PEM_read_bio_RSA_PUBKEY(kbio, 0, 0, 0);
+  if ( rsa )
+  {
+    if ( (unsigned int)MQTT_FULL_MSG_LENGTH <= 15 )
+    {
+      ReturnVal = -1;
+      puts("Invalid message - too short");
+    }
+    else
+    {
+      _4bytes_NUM_1 = *(_DWORD *)MQTT_MSG_POINTER;
+      _4bytes_NUM_2 = *(_DWORD *)(MQTT_MSG_POINTER + 4);
+      if ( *(_DWORD *)MQTT_MSG_POINTER >= _4bytes_NUM_2 )
+      {
+        ReturnVal = -1;
+        puts("Invalid message - sanity check failure");
+      }
+      else
+      {
+        ToldSizeOfMSG = _4bytes_NUM_2 - _4bytes_NUM_1;
+        if ( MQTT_FULL_MSG_LENGTH < _4bytes_NUM_2 - _4bytes_NUM_1 + RSA_size(rsa) + 16 )
+        {
+          ReturnVal = -1;
+          puts("Invalid message - too short (2)");
+        }
+        else if ( SHA512_Init(&SHA_CTX) == 1 )
+        {
+          msg_ptr_after_header = MQTT_MSG_POINTER + 16;
+          if ( SHA512_Update(
+                 (int)&SHA_CTX,
+                 (void *)(*(_DWORD *)MQTT_MSG_POINTER + MQTT_MSG_POINTER + 16),
+                 ToldSizeOfMSG) == 1 )
+          {
+            if ( SHA512_Final(&Hash, &SHA_CTX) == 1 )
+            {
+              rsa_size_512 = RSA_size(rsa);
+              RSA_Verify_Result = RSA_verify(
+                                    674,
+                                    &Hash,
+                                    64u,
+                                    *(_DWORD *)(MQTT_MSG_POINTER + 8) + msg_ptr_after_header,
+                                    rsa_size_512,
+                                    rsa);
+              Value_in_4bytes_NUM_4 = *(_DWORD *)(MQTT_MSG_POINTER + 12);
+              ReturnVal = -(RSA_Verify_Result == 0);
+              *(_DWORD *)a5 = Value_in_4bytes_NUM_4 + msg_ptr_after_header;
+              Value_in_4bytes_NUM_3 = *(_DWORD *)(MQTT_MSG_POINTER + 8);
+              if ( Value_in_4bytes_NUM_4 > Value_in_4bytes_NUM_3 )
+                v14 = Value_in_4bytes_NUM_3 - Value_in_4bytes_NUM_4 + MQTT_FULL_MSG_LENGTH - 16;
+              else
+                v14 = Value_in_4bytes_NUM_4 - Value_in_4bytes_NUM_3 + MQTT_FULL_MSG_LENGTH - 16;
+              *(_DWORD *)a6 = v14;
+            }
+            else
+            {
+              ReturnVal = -1;
+              puts("SHA512_Final error");
+            }
+          }
+          else
+          {
+            ReturnVal = -1;
+            puts("SHA512_Update error");
+          }
+        }
+        else
+        {
+          ReturnVal = -1;
+          puts("SHA512_Init error");
+        }
+      }
+    }
+    RSA_free(rsa);
+  }
+  else
+  {
+    ReturnVal = -1;
+    puts("PEM_read_bio_RSA_PUBKEY call failed");
+  }
+  BIO_free(kbio);
+LABEL_18:
+  result = ReturnVal;
+  if ( __readgsdword('\x14') != v21 )
+    sub_137710();
+  return result;
+}

@@ -1,0 +1,10 @@
+
+Using newest version of Wireshark (other version might vary):
+1. Place pcap file and session keys file in same directory
+2. Select Edit->preferences->protocols->ssl. Dialog box opens. 
+3. Find (Pre)-Master-Secret log filename entry field in ssl dialog box.
+4. Enter path to sessionkeys file: codebreakersessionkeys1.keys.
+5. Select 'Ok' to close ssl dialog box.
+6. You should now see decrypted MQTT traffic in Wireshark packet summary window
+
+

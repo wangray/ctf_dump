@@ -1,0 +1,30 @@
+Getting Started with Memory Forensics
+-------------------------------------
+
+The 5th task in this year's (2017) challenge will require you to analyze a memory snapshot. To help
+you get started, we have provided a Volatility profile for the Linux kernel version of the system 
+where the snapshot was taken. The Volatility tool and documentation can be found on the following
+website: http://www.volatilityfoundation.org/
+
+To install the profile, you will need to copy it to the volatility/plugins/overlays/linux directory
+of your installation. As a test to verify your setup is working, try running the following command
+from the top-level directory of volatility:
+
+python vol.py --info
+
+You should see "Linux3_13_0-128-generic-volatilityx64" under the list of available profiles. This is
+the profile that you will reference when performing your analysis.
+
+Since the memory snapshot is for a Linux image, you will need to use the linux plugins for volatility.
+The following command will show you the plugins that are available:
+
+python vol.py --info | grep linux
+
+The documentation that is available on the volatility website provides more instructions on how to use
+each plugin. Generally, you will run plugins as follows:
+
+python vol.py --profile=Linux3_13_0-128-generic-volatilityx64 -f <memory image> <volatility plugin>
+
+Good luck!
+
+

@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dfxml xmloutputversion='1.0'>
+  <metadata 
+  xmlns='http://afflib.org/tcpflow/' 
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <dc:type>Feature Extraction</dc:type>
+  </metadata>
+  <creator version='1.0'>
+    <program>TCPFLOW</program>
+    <version>1.4.7-dev</version>
+    <build_environment>
+      <compiler>4.2.1 (4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42))</compiler>
+      <CPPFLAGS>-D_THREAD_SAFE -pthread -I/usr/local/opt/openssl/include -I/usr/local/include -I/usr/local/include  -DUTC_OFFSET=+0000 </CPPFLAGS>
+      <CFLAGS>-g   -D_THREAD_SAFE -pthread -g -O3 -MD -Wpointer-arith -Wmissing-declarations -Wmissing-prototypes -Wshadow -Wwrite-strings -Wcast-align -Waggregate-return -Wbad-function-cast -Wcast-qual -Wundef -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wc++-compat -Wmissing-noreturn -Wall -Wstrict-prototypes -MD -D_FORTIFY_SOURCE=2 -Wpointer-arith -Wmissing-declarations -Wmissing-prototypes -Wshadow -Wwrite-strings -Wcast-align -Waggregate-return -Wbad-function-cast -Wcast-qual -Wundef -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wc++-compat -Wmissing-noreturn -Wall -Wstrict-prototypes</CFLAGS>
+      <CXXFLAGS>-g -D_THREAD_SAFE -pthread -g -O3 -Wall -MD -D_FORTIFY_SOURCE=2 -Wpointer-arith -Wshadow -Wwrite-strings -Wcast-align -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wmissing-noreturn -Woverloaded-virtual -Wsign-promo -funit-at-a-time -Weffc++ -std=c++11 -Wall -MD -D_FORTIFY_SOURCE=2 -Wpointer-arith -Wshadow -Wwrite-strings -Wcast-align -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wmissing-noreturn -Woverloaded-virtual -Wsign-promo -funit-at-a-time -Weffc++ </CXXFLAGS>
+      <LDFLAGS>-L/usr/local/opt/openssl/lib -L/usr/local/lib -L/usr/local/lib </LDFLAGS>
+      <LIBS>-lpython2.7 -lpcap -lcairo -lfontconfig -lfreetype -lbz2 -lpixman-1 -lexpat  -lsqlite3 -lssl -lcrypto -lssl -lcrypto -ldl -lz </LIBS>
+      <compilation_date>2017-07-28T14:19:39</compilation_date>
+      <library name="boost" version="105800"/>
+      <library name="sqlite" version="3.16.0" source_id="2016-11-04 19:09:39 0e5ffd9123d6d2d2b8f3701e8a73cc98a3a7ff5f"/>
+      <git commit="tcpflow-1.4.0beta1-211-gca4c413"/>
+    </build_environment>
+    <execution_environment>
+      <os_sysname>Darwin</os_sysname>
+      <os_release>16.7.0</os_release>
+      <os_version>Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64</os_version>
+      <host>C02PH0GEG3QD</host>
+      <arch>x86_64</arch>
+      <command_line>tcpflow -r codebreaker1.pcap -a</command_line>
+      <uid>502</uid>
+      <username>raywang</username>
+      <start_time>2017-12-22T02:54:28Z</start_time>
+    </execution_environment>
+  </creator>
+  <configuration>
+  </configuration>
+  <tdelta>0</tdelta>
+  <configuration>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.029.017.027.65259c1.server</filename>
+      <filesize>7</filesize>
+      <tcpflow startime='2017-09-14T02:39:09.328251Z' endtime='2017-09-14T02:39:20.661461Z' src_ipn='172.22.18.230' dst_ipn='172.29.17.27' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='4' srcport='8883' dstport='65259' family='2' />
+    </fileobject>
+    <fileobject>
+      <filename>172.029.017.027.65259-172.022.018.230.08883c1.client</filename>
+      <filesize>142</filesize>
+      <tcpflow startime='2017-09-14T02:39:08.940428Z' endtime='2017-09-14T02:39:20.744578Z' src_ipn='172.29.17.27' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='5' srcport='65259' dstport='8883' family='2' />
+      <hashdigest type='MD5'>c0b5f8d2f0c374b636d6e6e73c3a26c0</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.018.054.015.24313c1.server</filename>
+      <filesize>7</filesize>
+      <tcpflow startime='2017-09-14T02:39:26.616270Z' endtime='2017-09-14T02:39:29.578927Z' src_ipn='172.22.18.230' dst_ipn='172.18.54.15' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='4' srcport='8883' dstport='24313' family='2' />
+    </fileobject>
+    <fileobject>
+      <filename>172.018.054.015.24313-172.022.018.230.08883c1.client</filename>
+      <filesize>142</filesize>
+      <tcpflow startime='2017-09-14T02:39:25.607983Z' endtime='2017-09-14T02:39:30.512742Z' src_ipn='172.18.54.15' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='5' srcport='24313' dstport='8883' family='2' />
+      <hashdigest type='MD5'>c5d64ddaa151127eab6a06ba4c33fe82</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.025.246.162.55999c1.server</filename>
+      <filesize>7</filesize>
+      <tcpflow startime='2017-09-14T02:39:47.115270Z' endtime='2017-09-14T02:39:56.040036Z' src_ipn='172.22.18.230' dst_ipn='172.25.246.162' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='4' srcport='8883' dstport='55999' family='2' />
+    </fileobject>
+    <fileobject>
+      <filename>172.025.246.162.55999-172.022.018.230.08883c1.client</filename>
+      <filesize>118</filesize>
+      <tcpflow startime='2017-09-14T02:39:46.943429Z' endtime='2017-09-14T02:39:56.327536Z' src_ipn='172.25.246.162' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='5' srcport='55999' dstport='8883' family='2' />
+      <hashdigest type='MD5'>90d24d4ae97d35c5b9bb20826af5fe1b</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.024.065.187.40105-172.022.018.230.08883c1.client</filename>
+      <filesize>1689</filesize>
+      <tcpflow startime='2017-09-14T02:38:49.794325Z' endtime='2017-09-14T02:40:01.337597Z' src_ipn='172.24.65.187' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='54' srcport='40105' dstport='8883' family='2' />
+      <hashdigest type='MD5'>d06be5f03c036af634cff4c8baf057ed</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.018.194.226.63095c1.server</filename>
+      <filesize>2056</filesize>
+      <tcpflow startime='2017-09-14T02:40:07.423027Z' endtime='2017-09-14T02:40:22.794998Z' src_ipn='172.22.18.230' dst_ipn='172.18.194.226' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='63095' family='2' />
+      <hashdigest type='MD5'>c671d49ab1aee7f04ac9c9f5e24785d2</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.018.194.226.63095-172.022.018.230.08883c1.client</filename>
+      <filesize>569</filesize>
+      <tcpflow startime='2017-09-14T02:40:06.578833Z' endtime='2017-09-14T02:40:23.909291Z' src_ipn='172.18.194.226' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='8' srcport='63095' dstport='8883' family='2' />
+      <hashdigest type='MD5'>c56e3bca4f45d0f582cf65cb5a7084a7</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.117.151.02688c1.server</filename>
+      <filesize>2056</filesize>
+      <tcpflow startime='2017-09-14T02:40:27.725462Z' endtime='2017-09-14T02:40:36.514494Z' src_ipn='172.22.18.230' dst_ipn='172.28.117.151' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='2688' family='2' />
+      <hashdigest type='MD5'>52b8e7d43b74a09d3b1b2c2a0d0e657e</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.117.151.02688-172.022.018.230.08883c1.client</filename>
+      <filesize>729</filesize>
+      <tcpflow startime='2017-09-14T02:40:26.962493Z' endtime='2017-09-14T02:40:39.588644Z' src_ipn='172.28.117.151' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='8' srcport='2688' dstport='8883' family='2' />
+      <hashdigest type='MD5'>324958a6c3db143172be6660a3064c5d</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.016.096.026.10563c1.server</filename>
+      <filesize>2056</filesize>
+      <tcpflow startime='2017-09-14T02:40:46.795218Z' endtime='2017-09-14T02:41:05.377970Z' src_ipn='172.22.18.230' dst_ipn='172.16.96.26' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='10563' family='2' />
+      <hashdigest type='MD5'>b817ba80dc2ad6e94728c980f4357c86</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.016.096.026.10563-172.022.018.230.08883c1.client</filename>
+      <filesize>553</filesize>
+      <tcpflow startime='2017-09-14T02:40:45.706876Z' endtime='2017-09-14T02:41:06.939754Z' src_ipn='172.16.96.26' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='8' srcport='10563' dstport='8883' family='2' />
+      <hashdigest type='MD5'>a92ec99e66aac1ebe2fae1e1281a0e6a</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.027.225.154.55442c1.server</filename>
+      <filesize>2056</filesize>
+      <tcpflow startime='2017-09-14T02:41:08.776688Z' endtime='2017-09-14T02:41:18.968420Z' src_ipn='172.22.18.230' dst_ipn='172.27.225.154' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='55442' family='2' />
+      <hashdigest type='MD5'>747418990d877a69fb01fb652e70239f</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.027.225.154.55442-172.022.018.230.08883c1.client</filename>
+      <filesize>561</filesize>
+      <tcpflow startime='2017-09-14T02:41:07.893160Z' endtime='2017-09-14T02:41:19.891738Z' src_ipn='172.27.225.154' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='8' srcport='55442' dstport='8883' family='2' />
+      <hashdigest type='MD5'>8cc35f7ccd415bdf30161bd05120dc4a</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.026.224.107.08027-172.022.018.230.08883c1.client</filename>
+      <filesize>1656</filesize>
+      <tcpflow startime='2017-09-14T02:40:03.301844Z' endtime='2017-09-14T02:41:35.183800Z' src_ipn='172.26.224.107' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='53' srcport='8027' dstport='8883' family='2' />
+      <hashdigest type='MD5'>25f903e7fd1703fa14a94cc037a7547a</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.025.083.165.33367c1.server</filename>
+      <filesize>2056</filesize>
+      <tcpflow startime='2017-09-14T02:41:26.626687Z' endtime='2017-09-14T02:41:43.134191Z' src_ipn='172.22.18.230' dst_ipn='172.25.83.165' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='33367' family='2' />
+      <hashdigest type='MD5'>25ac17253491509d70a75bda370d5d66</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.025.083.165.33367-172.022.018.230.08883c1.client</filename>
+      <filesize>561</filesize>
+      <tcpflow startime='2017-09-14T02:41:25.843365Z' endtime='2017-09-14T02:41:44.130859Z' src_ipn='172.25.83.165' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='8' srcport='33367' dstport='8883' family='2' />
+      <hashdigest type='MD5'>af7c3f8ea96f03543efebe882c7fbdd5</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.44902-172.022.018.230.08883c1.client</filename>
+      <filesize>8647</filesize>
+      <tcpflow startime='2017-09-14T02:41:36.212761Z' endtime='2017-09-14T02:41:56.293996Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='12' srcport='44902' dstport='8883' family='2' />
+      <hashdigest type='MD5'>533faad504642da9b1ef52e6f651c083</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.44902c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:41:36.550645Z' endtime='2017-09-14T02:41:56.762488Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='9' srcport='8883' dstport='44902' family='2' />
+      <hashdigest type='MD5'>85cf238a4413793018b7228b49edd9ae</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.022.131.061.06316c1.server</filename>
+      <filesize>2056</filesize>
+      <tcpflow startime='2017-09-14T02:41:48.885524Z' endtime='2017-09-14T02:42:11.287267Z' src_ipn='172.22.18.230' dst_ipn='172.22.131.61' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='6316' family='2' />
+      <hashdigest type='MD5'>332b10efcba115cd349ade64b78d6eb9</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.131.061.06316-172.022.018.230.08883c1.client</filename>
+      <filesize>549</filesize>
+      <tcpflow startime='2017-09-14T02:41:48.696258Z' endtime='2017-09-14T02:42:12.427961Z' src_ipn='172.22.131.61' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='8' srcport='6316' dstport='8883' family='2' />
+      <hashdigest type='MD5'>f49c4d7baed1e9b23f5bfbe8eb2270fb</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.017.081.064.46951-172.022.018.230.08883c1.client</filename>
+      <filesize>1534</filesize>
+      <tcpflow startime='2017-09-14T02:41:57.778456Z' endtime='2017-09-14T02:42:47.445724Z' src_ipn='172.17.81.64' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='41' srcport='46951' dstport='8883' family='2' />
+      <hashdigest type='MD5'>7845cc3c9cc7a75034ee842595e964df</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.27033-172.022.018.230.08883c1.client</filename>
+      <filesize>1388</filesize>
+      <tcpflow startime='2017-09-14T02:42:49.927047Z' endtime='2017-09-14T02:42:59.436343Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='12' srcport='27033' dstport='8883' family='2' />
+      <hashdigest type='MD5'>6795724efac4b09f3455f86f3d3e5f61</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.38009-172.022.018.230.08883c1.client</filename>
+      <filesize>1379</filesize>
+      <tcpflow startime='2017-09-14T02:43:00.716073Z' endtime='2017-09-14T02:43:09.689738Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='11' srcport='38009' dstport='8883' family='2' />
+      <hashdigest type='MD5'>17c6706951d5d906055a43f7bd277fb3</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.38009c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:43:00.853240Z' endtime='2017-09-14T02:43:09.739176Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='38009' family='2' />
+      <hashdigest type='MD5'>3b16e96c3b3febb0661392b5be48f041</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.09321-172.022.018.230.08883c1.client</filename>
+      <filesize>8631</filesize>
+      <tcpflow startime='2017-09-14T02:43:12.757015Z' endtime='2017-09-14T02:43:26.521652Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='12' srcport='9321' dstport='8883' family='2' />
+      <hashdigest type='MD5'>f359e8676463a345f989563a1c0b8143</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.58419-172.022.018.230.08883c1.client</filename>
+      <filesize>1379</filesize>
+      <tcpflow startime='2017-09-14T02:43:27.112560Z' endtime='2017-09-14T02:43:37.746578Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='11' srcport='58419' dstport='8883' family='2' />
+      <hashdigest type='MD5'>fab8436fc7e8aa7e41faac3b551342f1</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.58419c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:43:27.786924Z' endtime='2017-09-14T02:43:39.473468Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='58419' family='2' />
+      <hashdigest type='MD5'>118ad1392b1dd31b6a6afdf1815978bd</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.63703-172.022.018.230.08883c1.client</filename>
+      <filesize>1401</filesize>
+      <tcpflow startime='2017-09-14T02:43:39.902333Z' endtime='2017-09-14T02:43:49.817944Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='12' srcport='63703' dstport='8883' family='2' />
+      <hashdigest type='MD5'>a13a61f329cfcd49640884efe050874b</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.63703c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:43:40.951184Z' endtime='2017-09-14T02:43:49.955503Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='63703' family='2' />
+      <hashdigest type='MD5'>112407ba874f13ce259941d152e013f2</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.60392-172.022.018.230.08883c1.client</filename>
+      <filesize>1401</filesize>
+      <tcpflow startime='2017-09-14T02:43:51.718476Z' endtime='2017-09-14T02:44:01.837395Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='11' srcport='60392' dstport='8883' family='2' />
+      <hashdigest type='MD5'>9324183c20b9bbddcf5644cf00cbcd38</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.028.131.148.05921-172.022.018.230.08883c1.client</filename>
+      <filesize>1372</filesize>
+      <tcpflow startime='2017-09-14T02:44:03.518726Z' endtime='2017-09-14T02:44:14.092025Z' src_ipn='172.28.131.148' dst_ipn='172.22.18.230' mac_daddr='00:84:ed:bd:de:e8' mac_saddr='00:84:ed:82:9c:21' packets='11' srcport='5921' dstport='8883' family='2' />
+      <hashdigest type='MD5'>a2f2ce48251e9bb3546501d5bcc39ba5</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.05921c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:44:04.010034Z' endtime='2017-09-14T02:44:14.260063Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='5921' family='2' />
+      <hashdigest type='MD5'>25a0fc369d085e28c3fa5cb70fdbf8ce</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.09321c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:43:13.064929Z' endtime='2017-09-14T02:43:25.802385Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='8' srcport='8883' dstport='9321' family='2' />
+      <hashdigest type='MD5'>a9bed0ac33918051cb6213edb75bd4de</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.60392c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:43:51.881364Z' endtime='2017-09-14T02:44:02.853069Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='7' srcport='8883' dstport='60392' family='2' />
+      <hashdigest type='MD5'>ecd1a426ada40521f152e751db1071cc</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.028.131.148.27033c1.server</filename>
+      <filesize>2264</filesize>
+      <tcpflow startime='2017-09-14T02:42:50.687449Z' endtime='2017-09-14T02:42:58.103610Z' src_ipn='172.22.18.230' dst_ipn='172.28.131.148' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='7' srcport='8883' dstport='27033' family='2' />
+      <hashdigest type='MD5'>1446da3dddb686f9764b932e76627bfd</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.017.081.064.46951c1.server</filename>
+      <filesize>14339</filesize>
+      <tcpflow startime='2017-09-14T02:41:57.917478Z' endtime='2017-09-14T02:42:48.083980Z' src_ipn='172.22.18.230' dst_ipn='172.17.81.64' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='39' srcport='8883' dstport='46951' family='2' />
+      <hashdigest type='MD5'>ffc352ebd62e9f0a5f847604992a0c5b</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.026.224.107.08027c1.server</filename>
+      <filesize>22191</filesize>
+      <tcpflow startime='2017-09-14T02:40:04.177956Z' endtime='2017-09-14T02:41:35.218132Z' src_ipn='172.22.18.230' dst_ipn='172.26.224.107' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='46' srcport='8883' dstport='8027' family='2' />
+      <hashdigest type='MD5'>01fef4ac6b0eb2e6fb04c79fda883dda</hashdigest>
+    </fileobject>
+    <fileobject>
+      <filename>172.022.018.230.08883-172.024.065.187.40105c1.server</filename>
+      <filesize>22280</filesize>
+      <tcpflow startime='2017-09-14T02:38:50.241321Z' endtime='2017-09-14T02:40:02.392975Z' src_ipn='172.22.18.230' dst_ipn='172.24.65.187' mac_daddr='00:84:ed:82:9c:21' mac_saddr='00:84:ed:bd:de:e8' packets='47' srcport='8883' dstport='40105' family='2' />
+      <hashdigest type='MD5'>0529b8619192b781e1ffaa62d8a124ee</hashdigest>
+    </fileobject>
+  </configuration>
+  <summary><ssids>
+</ssids>
+</summary>
+  <open_fds_at_end>6</open_fds_at_end>
+  <max_open_flows>8</max_open_flows>
+  <total_flows>40</total_flows>
+  <flow_map_size>6</flow_map_size>
+  <total_packets>558</total_packets>
+  <rusage>
+    <utime>0.054040</utime>
+    <stime>0.022628</stime>
+    <maxrss>10547200</maxrss>
+    <minflt>2876</minflt>
+    <majflt>126</majflt>
+    <nswap>0</nswap>
+    <inblock>3</inblock>
+    <oublock>3</oublock>
+    <clocktime>0.067336</clocktime>
+  </rusage>
+</dfxml>

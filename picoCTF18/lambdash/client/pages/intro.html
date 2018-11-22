@@ -1,0 +1,24 @@
+<h2>Intro to functional programming</h2>
+Welcome to the Lambda Shell! This interactive tutorial will teach you the basics of programming in a purely functional environment. Specifically, we will be using a variation of typed lambda calculus called <i>System F</i>. As we go along, we will use a web shell that runs our programs for us.
+<h2>First order Functions</h2>
+The most important concept of functional programming is that of the function. Unlike other languages, in System F (and all lambda calculi), functions are a foundational construct. All functions in System F follow the same format. They take as an argument a single expression <c>e</c>, and output a single expression <c>v</c>. Consider the following program. In it, the argument is stored in a variable called <c>x</c>, and the output of the function is <c>x</c> itself. The notation may be a bit strange at first, but it is as simple as <c>lambda &lt;variable name&gt; . &lt;expression using that variable&gt;</c>. Try running the program below.
+<codearea data-name="The Failed First">
+lambda x.x
+</codearea>
+Oh no, it didn't work! Why is that? Well in order for System F to compile and run this code, it needs to know what the <b>type<b> of its arguments and return values are. A type is a bit like metadata of the expression. In the same way that you might say this file is a PDF, you want to say that this variable is an integer. 
+<br><br>
+But this is a bit confusing right now, because the only expressions we've seen are variables which can have any types, and functions whose type depends on those variables. How do we get a type in the first place! What we would like is to say that the previous function takes any argument x, and then returns it. Phrased differently, the for every type <c>&alpha;</c>, the function takes in an <c>&alpha;</c> and returns an <c>&alpha;</c>.
+<br><br>
+Fortunately, System F lets us do this! We can define a type function <c>LAMBDA</c> whose argument is a type. That type can then be used by the normal function inside of it. Let's see what that looks like
+<codearea data-name="A Better Kind">
+LAMBDA a.
+	lambda x:a.x
+</codearea>
+What do you expect the type of this expression to be? Try to figure it out before running the code.
+<br><br>
+Was the result what you were expecting? Effectively this statement is the function that can take any input, and return that same output, regardless of the type. We call this the identity function. Next we will figure out how to call that function.
+
+<br><br>
+<div class="nav">
+	<a class="next-page" href="/?page=client/pages/application.html">Next Page &rarr;</a>
+</div>

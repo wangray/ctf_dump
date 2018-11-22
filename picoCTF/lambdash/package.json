@@ -1,0 +1,28 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "jison src/lambda.jison -o dist/lambda.js && tsc",
+    "watch": "concurrently --kill-others 'watch \"jison src/lambda.jison -o dist/lambda.js\" src' 'tsc -w' 'nodemon dist/server.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "immutable": "^3.8.2",
+    "jison": "^0.4.18",
+    "mz": "^2.7.0",
+    "nconf": "^0.10.0",
+    "vm2": "^3.6.3"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.0",
+    "@types/mz": "^0.0.32",
+    "@types/nconf": "^0.0.37"
+  }
+}

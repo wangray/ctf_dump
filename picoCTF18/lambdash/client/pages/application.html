@@ -1,0 +1,20 @@
+<h2>Function Application</h2>
+So we now have a generic function that can return anything that it is passed. But we have not yet seen how to pass it anything. Since we have a generic function like this, the first thing we need to do is <c>type-constrain</c> it. This means we must tell it what that <c>&alpha;</c> is in <c>&forall; &alpha;.&alpha;&rarr;&alpha;</c>. We do this using type application syntax. Let's see what this looks like in practice. 
+<codearea data-name="Deja Vu">
+(LAMBDA a.lambda x:a.x)
+	[forall b.b->b]
+</codearea>
+Here we have constrained the type to be the same as its inner function. This means that we now have a function whose input is the identity function, and whose output is the same identity function. Talk about functional.
+<br><br>
+If you're confused at this point, think about it this way. Imagine playing catch with friend. Whatever you pass them, they'll immediately pass back to you. However, they don't want to be caught off guard, so before you pass them anything you have to call out what it is you're passing: <i>"Ball"</i>, <i>"Soda"</i>, <i>"Large Tractor Trailer"</i>! We're doing the same thing with our function. It will return anything that we give it, as long as it first knows what that is. In this case, we're telling it that we want to give it a function identical to itself. Now let's try that. 
+<codearea data-name="Deja Vu All Over Again">
+(LAMBDA a.lambda x:a.x)
+	[forall b.b->b]
+	(LAMBDA b.lambda y:b.y)
+</codearea>
+Now that we've given it a function of type <c>&forall; &alpha;.&alpha;&rarr;&alpha;</c>, our final output is just that function which was handed back to us. It might not be very exciting, but we've finally written a program that actually does something. Now let's see how to make it do something useful.
+
+<div class="nav">
+	<a class="prev-page" href="/?page=client/pages/intro.html">&larr; Prev Page</a>
+	<a class="next-page" href="/?page=client/pages/numerals.html">Next Page &rarr;</a>
+</div>

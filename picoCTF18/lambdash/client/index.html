@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/styles/styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa|Josefin+Sans" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cash/2.3.3/cash.min.js"></script>
+		<script type="application/template" id="codearea">
+<div class="code-area">
+	<div class="code-original" data-ref="{ref}">{code}</div>
+	<div class="code-header">{name}</div>
+	<div class="code-body" data-ref="{ref}">
+		<textarea class="code-text" data-ref="{ref}">{code}</textarea>
+		<div class="code-result" data-ref="{ref}">
+		</div>
+	</div>
+	<div class="code-footer">
+		<input type="button" class="code-run" data-ref="{ref}" value="Run"/>
+		<input type="button" class="code-reset" data-ref="{ref}" value="Reset"/>
+	</div>
+</div>
+		</script>
+		<script src="/scripts/index.js">
+		</script>
+	</head>
+	<body>
+		<h1>ΛambΔash</h1>
+		<div class="subtitle">the online lambda shell</div>
+		<div class="main-body">
+{server-body}
+		</div>
+	</body>
+</html>

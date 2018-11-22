@@ -1,0 +1,71 @@
+<h2>Product Types</h2>
+
+It's great that we finally have numbers, but by theirselves numbers are not wholy useful. Likewise, it is somewhat annoying that functions can only take one argument and have one return value. It would be nice if we had a type that could encapsulate multiple values of different types. These constructions are usually called tuples.
+<br><br>
+Using a similar construction to our numerals from the previous page, we can reason about a tuple. For right now, let's just consider a tuple of two integers. To give it a more practical grounding, we'll call this type <c>RAT</c> for rational number, where the first value is the numerator and the second value is the denominator. As before, we don't yet have any conception of a tuple type, so we'll just require whomever uses this construction to give us their own. Furthermore, we also don't know how to construct a tuple. We know that the constructor takes one int, and then another int, and then returns the tuple. Let's have our user give that to us too. As such, our rational type becomes:
+
+<codearea data-name="Simple Rational">
+LAMBDA tuple.
+	lambda constructor: int -> int -> tuple.
+	constructor 1 2
+</codearea>
+
+Let's try using it now. Here's a little program to add to rationals
+
+<codearea data-name="A funkier addition">
+alias rat=forall r.(int -> int -> r) -> r in
+
+lambda a:rat.
+lambda b:rat.
+	LAMBDA tuple.
+	lambda constructor: int -> int -> tuple.
+		constructor
+		((a[int] lambda x:int. lambda y:int. x)
+		*(b[int] lambda x:int. lambda y:int. y)
+		+(a[int] lambda x:int. lambda y:int. y)
+		*(b[int] lambda x:int. lambda y:int. x))
+		((a[int] lambda x:int. lambda y:int. y)
+		*(b[int] lambda x:int. lambda y:int. y))
+</codearea>
+If you're confused as to why this works, consider what it means to provide a constructor that only returns two values. If you want proof that this actually works, try calling it on some actual values
+<codearea data-name="Thank goodness for scrollbars">
+alias rat=forall r.(int -> int -> r) -> r in
+
+(lambda add: rat -> rat -> rat.
+	add (
+	LAMBDA r.
+		lambda constructor: int -> int -> r.
+		constructor 1 2
+	) (
+	LAMBDA r.
+		lambda constructor: int -> int -> r.
+		constructor 3 4
+	))
+(lambda a:rat.
+ lambda b:rat.
+	LAMBDA r.
+	lambda constructor: int -> int -> r.
+		constructor
+		((a[int] lambda x:int. lambda y:int. x)
+		*(b[int] lambda x:int. lambda y:int. y)
+		+(a[int] lambda x:int. lambda y:int. y)
+		*(b[int] lambda x:int. lambda y:int. x))
+		((a[int] lambda x:int. lambda y:int. y)
+		*(b[int] lambda x:int. lambda y:int. y)))
+</codearea>
+As with integers, however, we do not want to use this encoding all of the time. Really, we want a nicer type that we can easily pass around. Fortunately, we have syntax for this. Note that these tuples have labels, which means we can extract their value based off of an identifier.
+<codearea data-name="Nicer?">
+alias rat = { `Numerator int * `Denominator int } in
+lambda a: rat.
+lambda b: rat.
+	{ 
+		`Numerator (a#`Numerator * b#`Denominator + a#`Denominator * b#`Numerator),
+		`Denominator (a#`Denominator * b#`Denominator)
+	}
+</codearea>
+<br><br>
+
+<div class="nav">
+	<a class="prev-page" href="/?page=client/pages/numerals.html">&larr; Prev Page</a>
+	<a class="next-page" href="/?page=client/pages/sums.html">Next Page &rarr;</a>
+</div>

@@ -1,0 +1,40 @@
+<h2>Sum Types</h2>
+
+The final type we will talk about are sum types or alternation types. This is the type of data when you have one thing or another. For instance, we might either have a secret value (actually a number but whatever), or a function that takes a password and gives us the secret value. What we would like to be able to do is given some alternation type, a function to produce this type from the first value, and a function to produce this type from the second value, we should produce this alternation type. This should be very similar to what we've done before.
+<codearea data-name="Once more into the fray">
+LAMBDA alt.
+	lambda first: (int -> alt).
+	lambda second: ((int -> int) -> alt).
+	second (lambda x:int.x * 5)
+</codearea>
+Now how would we use this to extract our secret value? Well we need to be prepared to handle any type
+<codearea data-name="Real Security (tm)">
+alias alt = forall a.(int -> a) -> ((int -> int) -> a) -> a in
+
+lambda secret: alt.
+	secret[int] (lambda x:int. x) (lambda f:int->int. f 10)
+</codearea>
+Now an interesting artifact of this is what happens when we allow our type to be a little more recursive. In other words, if our alternation type is <c>alt</c>, and our first value could be an <c>alt -> alt</c>, and our second value has type <c>alt</c>. With that, we get the type <c>&forall; a.(a -> a) -> a -> a</c>. But wait! That's just an <c>num</c> type. As it turns out, numbers are just special cases of recursive alternations.
+
+<br><br>
+
+As before, we have nicer syntax for working with alternations in System F. Let's see an example
+<codearea data-name="&quot;Nicer&quot;">
+alias secret = <`Value int + `Function (int -> int)> in
+
+(lambda decode:secret -> int.
+	(decode `Value 10 as secret) + (decode `Function (lambda x:int. x*5) as secret)
+)
+lambda value:secret.
+	case (value) {
+		  `Value v -> v
+		| `Function f -> f 10
+	}
+</codearea>
+
+Numbers, products, and sums are only the very foundation of what System F can do. Furthermore, we've seen that all we need to implement any of these are functions themselves. As mind-blowing as it is, with a strong typesystem we can see exactly how powerful the lambda calculus is, and it becomes increasingly clear how it is equivalent to traditional programming languages in terms of power. Although this concludes the tutorial, the next page will have an overview of some additional features implemented in this language.
+
+<div class="nav">
+	<a class="prev-page" href="/?page=client/pages/products.html">&larr; Prev Page</a>
+	<a class="next-page" href="/?page=client/pages/additional.html">Next Page &rarr;</a>
+</div>

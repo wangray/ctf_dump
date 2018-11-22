@@ -1,0 +1,69 @@
+<h2>Numbers, but also functions</h2>
+
+As cool as functions are, without any thing additional they're pretty useless, right? Well as it turns out, that's not quite true. Believe it or not, we can actually describe numbers using functions. Before we can do that, we should first figure out how to represent <c>0</c>.
+<br><br>
+If we think about numbers as a series of successions, then we start out with some 0, and then 1 is just 1 + 0, 2 is 1 + 1 + 0, and so on. We can also think about it as functions calls. 0 is 0, but then <c>succ (0)</c> is the successor of 0 &mdash; 1. Likewise, <c>succ (succ (0)) </c> is 2 and so forth. But we still haven't figured out what 0 is. 
+<br><br>
+We don't yet have number type, but what we can do is assume that someone else has defined a number type. Maybe they have this really weird system of using function to represent numbers, or maybe they have more built in types then we do. At this point, we don't care as long as they can tell us what that type is. In fact, we should have them give us not just the type, but also the value of zero, and the successor function. If they give us all those, we can definitely give them a number. Let's see how.
+<codearea data-name="A Complicated Zero">
+LAMBDA num.
+    lambda succ: num->num.
+    lambda zero: num.
+    zero
+</codearea>
+See how simple that was? We don't have to care what a number is, but if they give us a zero, we can give them a zero back. Likewise, we can also construct larger numbers by repeatedly getting the next value of the number.
+<codearea data-name="A Complicated Zero">
+LAMBDA num.
+    lambda succ: num->num.
+    lambda zero: num.
+    succ (succ (succ zero))
+</codearea>
+What number does this expression represent?
+<br><br>
+<h2>Weird Types</h2>
+Now here's the really interesting part. We said that we don't know what they type of number is, but that it would be given to us. Yet, in doing so we created our own type for number, specifically they <c>&forall; num. (num &rarr; num) -> &rarr; num -> num</c>. First we expect a successor, then we expect a zero, and finally we can give you our number. All of this without inherently knowing what a number is. Pretty crazy, right?
+
+<br><br>
+Let's see how we can use this. Since our numbers are just functions, we can use the fact that <c>(n + 0) + (m + 0) = (n + (m + 0))</c> to perform addition. In other words, we take one of our inputs, say <c>m</c> and use it as the zero for our other input.
+<codearea data-name="Add + ition">
+lambda m: (forall num. (num -> num) -> num -> num).
+lambda n: (forall num. (num -> num) -> num -> num).
+LAMBDA num.
+    lambda succ: num->num.
+    lambda zero: num.
+    n[num] succ (m[num] succ zero)
+</codearea>
+Ouch. Not only is that conceptually complicated, but its also incredibly hard to read. It would be nicer if we could rename that complicated type to something simpler. Fortunately, we can
+<codearea data-name="Easier to Read">
+alias number = forall num.(num -> num) -> num -> num in
+lambda m: number.
+lambda n: number.
+LAMBDA num.
+    lambda succ: num->num.
+    lambda zero: num.
+    n[num] succ (m[num] succ zero)
+</codearea>
+With some nicer syntax out of the way, try considering how you would implement multiplication
+<codearea data-name="A Tricky Challenge">
+alias number = forall num.(num -> num) -> num -> num in
+lambda m: number.
+lambda n: number.
+LAMBDA num.
+    lambda succ: num -> num.
+    lambda zero: num.
+    &gt; fill in here &lt;
+</codearea>
+<h2>Powerful, but messy</h2>
+Now that we know how to implement numbers in System F. It's about time we cheated. Numbers are incredibly useful, and don't want to have to use that syntax (called a <a href="https://en.wikipedia.org/wiki/Church_encoding">Church encoding</a> everywhere). Let's see an easier implementation using the built in <c>INT</c> type.
+<codearea data-name="Thank. Goodness.">
+alias number = int in   
+(lambda m: number.
+ lambda n: number.
+    m + n)
+5 10
+</codearea>
+Now that we have numbers, let's move on to something more complicated
+<div class="nav">
+    <a class="prev-page" href="/?page=client/pages/application.html">&larr; Prev Page</a>
+    <a class="next-page" href="/?page=client/pages/products.html">Next Page &rarr;</a>
+</div>

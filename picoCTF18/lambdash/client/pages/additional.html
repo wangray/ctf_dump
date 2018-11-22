@@ -1,0 +1,57 @@
+<h2>Recursive Types</h2>
+
+In order for us to have more advanced data types, we need to allow them to be recursive. Unfortunately, this opens up a whole host of problems, namely the posibility of an infinitely deep type (<c>type a = type a</c>). In order to mitigate this, we introduct <c>fold</c> and <c>unfold</c> which pack and unpack a recursive type respectively. Let's consider a traditional definition of a list
+
+<codearea data-name="The List">
+alias clist = rec l. < `Nil unit + `Cons { `Data int * `Prev l } > in
+alias list  =        < `Nil unit + `Cons { `Data int * `Prev clist } > in
+
+fold as clist
+`Cons { `Data 3, `Prev (
+	fold as clist
+	`Cons { `Data 2, `Prev (
+		fold as clist
+		`Cons { `Data 1, `Prev (
+			fold as clist (`Nil () as list)
+		)} as list
+	)} as list
+)} as list
+</codearea>
+
+<h2>Recursion</h2>
+
+Now given that list, how can we add up all of its elements and return the value? To do this, we also need a recursive function. For this, we use a <c>fix</c>ed point function.
+<codearea data-name="Was a List">
+alias clist = rec l. < `Nil unit + `Cons { `Data int * `Prev l } > in
+alias list  =        < `Nil unit + `Cons { `Data int * `Prev clist } > in
+
+(
+	fix f list: clist returns int.
+		case (unfold list) {
+			  `Nil u -> 0
+			| `Cons r -> r#`Data + (f r#`Prev)
+		}
+)(
+fold as clist
+`Cons { `Data 3, `Prev (
+	fold as clist
+	`Cons { `Data 2, `Prev (
+		fold as clist
+		`Cons { `Data 1, `Prev (
+			fold as clist (`Nil () as list)
+		)} as list
+	)} as list
+)} as list
+)
+</codearea>
+
+<h2>Thanks!</h2>
+This covers a lot of the important bits of System F. Play around with it and see what you can do!
+
+<codearea data-name="Place Pwn Here"></codearea>
+
+<br><br>
+
+<div class="nav">
+	<a class="prev-page" href="/?page=client/pages/sums.html">&larr; Prev Page</a>
+</div>
